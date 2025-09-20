@@ -29,11 +29,13 @@ export function Sidebar({
   onNavigate,
   collapsed,
   onTransferClick,
+  onSupportClick,
 }: {
   className?: string;
   onNavigate?: () => void;
   collapsed?: boolean;
   onTransferClick?: () => void;
+  onSupportClick?: () => void;
 }) {
   const [hovered, setHovered] = useState(false);
 
@@ -81,6 +83,7 @@ export function Sidebar({
       <nav className="flex-1 overflow-y-auto p-2 space-y-1">
         {navItems.map(({ to, label, icon: Icon }) => {
           const isTransfer = to === "/transferler";
+          const isSupport = to === "/destek";
           return (
             <NavLink
               key={to}
@@ -89,6 +92,9 @@ export function Sidebar({
                 if (isTransfer && onTransferClick) {
                   e.preventDefault();
                   onTransferClick();
+                } else if (isSupport && onSupportClick) {
+                  e.preventDefault();
+                  onSupportClick();
                 }
                 onNavigate?.();
               }}
