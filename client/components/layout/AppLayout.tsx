@@ -309,8 +309,9 @@ export default function AppLayout({ children }: PropsWithChildren) {
         </main>
       </div>
 
-      {/* Right languages rail */}
+      {/* Right rails */}
       <LanguageRail />
+      <SettingsRail />
 
       {/* Transfer modal */}
       <TransferModal open={transferOpen} onOpenChange={setTransferOpen} />
