@@ -29,7 +29,7 @@ export default function SettingsRail() {
   }, [theme]);
 
   return (
-    <div className="hidden md:flex fixed right-3 top-1/2 -translate-y-1/2 flex-col items-center gap-2 z-40">
+    <div className="hidden md:flex fixed right-3 top-[70%] -translate-y-1/2 flex-col items-center gap-2 z-40">
       <button
         aria-label="Ayarlar"
         onClick={() => setOpen(true)}
