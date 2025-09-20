@@ -1,6 +1,7 @@
 import { PropsWithChildren, useEffect, useState } from "react";
 import { Sidebar } from "./Sidebar";
 import { LanguageRail } from "./LanguageRail";
+import SettingsRail from "./SettingsRail";
 import { Menu, X } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 import Sparkline from "@/components/ui/Sparkline";
