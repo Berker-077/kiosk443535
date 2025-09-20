@@ -289,7 +289,17 @@ export default function AppLayout({ children }: PropsWithChildren) {
               <X className="h-5 w-5" />
             </button>
           </div>
-          <Sidebar onNavigate={() => setOpen(false)} onTransferClick={() => { setTransferOpen(true); setOpen(false); }} onSupportClick={() => { setSupportOpen(true); setOpen(false); }} />
+          <Sidebar
+            onNavigate={() => setOpen(false)}
+            onTransferClick={() => {
+              setTransferOpen(true);
+              setOpen(false);
+            }}
+            onSupportClick={() => {
+              setSupportOpen(true);
+              setOpen(false);
+            }}
+          />
         </div>
       </div>
 

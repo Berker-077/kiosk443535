@@ -211,10 +211,18 @@ export default function SupportModal({
             </div>
 
             <div className="flex items-center justify-end gap-3">
-              <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => onOpenChange(false)}
+              >
                 İptal
               </Button>
-              <Button type="submit" className="bg-brand text-white" disabled={!canSubmit}>
+              <Button
+                type="submit"
+                className="bg-brand text-white"
+                disabled={!canSubmit}
+              >
                 Gönder
               </Button>
             </div>

@@ -7,7 +7,13 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function SettingsRail() {
   const [open, setOpen] = useState(false);
@@ -47,7 +53,11 @@ export default function SettingsRail() {
             <div>
               <Label htmlFor="theme-select">Tema</Label>
               <Select value={theme} onValueChange={setTheme}>
-                <SelectTrigger id="theme-select" aria-label="Tema seçimi" className="mt-1">
+                <SelectTrigger
+                  id="theme-select"
+                  aria-label="Tema seçimi"
+                  className="mt-1"
+                >
                   <SelectValue placeholder="Tema seçiniz" />
                 </SelectTrigger>
                 <SelectContent>
