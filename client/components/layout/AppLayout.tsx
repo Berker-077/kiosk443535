@@ -1,15 +1,18 @@
 import { PropsWithChildren, useEffect, useState } from "react";
 import { Sidebar } from "./Sidebar";
 import { LanguageRail } from "./LanguageRail";
+import SettingsRail from "./SettingsRail";
 import { Menu, X } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 import Sparkline from "@/components/ui/Sparkline";
 import TransferModal from "@/components/transfers/TransferModal";
+import SupportModal from "@/components/support/SupportModal";
 
 export default function AppLayout({ children }: PropsWithChildren) {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
   const [transferOpen, setTransferOpen] = useState(false);
+  const [supportOpen, setSupportOpen] = useState(false);
 
   // Sidebar collapsed (mini) state. Default: collapse on inner pages
   const [collapsed, setCollapsed] = useState(() => {
@@ -286,7 +289,17 @@ export default function AppLayout({ children }: PropsWithChildren) {
               <X className="h-5 w-5" />
             </button>
           </div>
-          <Sidebar onNavigate={() => setOpen(false)} onTransferClick={() => { setTransferOpen(true); setOpen(false); }} />
+          <Sidebar
+            onNavigate={() => setOpen(false)}
+            onTransferClick={() => {
+              setTransferOpen(true);
+              setOpen(false);
+            }}
+            onSupportClick={() => {
+              setSupportOpen(true);
+              setOpen(false);
+            }}
+          />
         </div>
       </div>
 
@@ -298,6 +311,7 @@ export default function AppLayout({ children }: PropsWithChildren) {
             setOpen(false);
           }}
           onTransferClick={() => setTransferOpen(true)}
+          onSupportClick={() => setSupportOpen(true)}
           collapsed={collapsed}
         />
         <main className={`flex-1 min-w-0 ${collapsed ? "md:pl-6" : ""}`}>
@@ -305,11 +319,15 @@ export default function AppLayout({ children }: PropsWithChildren) {
         </main>
       </div>
 
-      {/* Right languages rail */}
+      {/* Right rails */}
       <LanguageRail />
+      <SettingsRail />
 
       {/* Transfer modal */}
       <TransferModal open={transferOpen} onOpenChange={setTransferOpen} />
+
+      {/* Support modal */}
+      <SupportModal open={supportOpen} onOpenChange={setSupportOpen} />
     </div>
   );
 }
